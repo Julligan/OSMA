@@ -517,7 +517,7 @@ MonoBehaviour:
   verticalModifier: 350
   climbingModifier: 10
   jumpMultipler: 2
-  methodTime: 0.5
+  methodTime: 0.2
   lerpTime: 0.5
   lineBuffer: 1
 --- !u!50 &1874708921
