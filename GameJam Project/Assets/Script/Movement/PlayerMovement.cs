@@ -112,7 +112,8 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector2 horizontalDisplacement = new Vector2(horizontal * horizontalModifier, 0.0f);
 
-        rb2D.position += horizontalDisplacement * Time.fixedDeltaTime;
+        transform.Translate(horizontalDisplacement);
+        //rb2D.position += horizontalDisplacement * Time.fixedDeltaTime;
     }
 
     // Moves the player in the y direction
