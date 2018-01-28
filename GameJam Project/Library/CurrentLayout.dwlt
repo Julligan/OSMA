@@ -111,7 +111,11 @@ MonoBehaviour:
   m_MaxSize: {x: 18006, y: 14042}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 960
+=======
+  controlID: 21
+>>>>>>> parent of 668d76b... Change commit
 =======
   controlID: 21
 >>>>>>> parent of 668d76b... Change commit
@@ -139,7 +143,11 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 961
+=======
+  controlID: 22
+>>>>>>> parent of 668d76b... Change commit
 =======
   controlID: 22
 >>>>>>> parent of 668d76b... Change commit
@@ -219,7 +227,11 @@ MonoBehaviour:
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 832
+=======
+  controlID: 79
+>>>>>>> parent of 668d76b... Change commit
 =======
   controlID: 79
 >>>>>>> parent of 668d76b... Change commit
@@ -439,9 +451,15 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 4.738212
     speed: 2
     m_Value: 4.738212
+=======
+    m_Target: 37.216393
+    speed: 2
+    m_Value: 37.216393
+>>>>>>> parent of 668d76b... Change commit
 =======
     m_Target: 37.216393
     speed: 2
@@ -538,10 +556,13 @@ MonoBehaviour:
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: c8f7ffff
     m_LastClickedID: -2104
     m_ExpandedIDs: 7a76ffffc8f7ffffe6fbffff0000000068250000
 =======
+=======
+>>>>>>> parent of 668d76b... Change commit
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: e6fbffff00000000
