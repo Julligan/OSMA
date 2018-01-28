@@ -110,7 +110,11 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 492}
   m_MaxSize: {x: 18006, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 960
+=======
+  controlID: 21
+>>>>>>> parent of 668d76b... Change commit
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +138,11 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 961
+=======
+  controlID: 22
+>>>>>>> parent of 668d76b... Change commit
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +218,11 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 832
+=======
+  controlID: 79
+>>>>>>> parent of 668d76b... Change commit
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -426,9 +438,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 4.738212
     speed: 2
     m_Value: 4.738212
+=======
+    m_Target: 37.216393
+    speed: 2
+    m_Value: 37.216393
+>>>>>>> parent of 668d76b... Change commit
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -519,9 +537,15 @@ MonoBehaviour:
     height: 327
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: c8f7ffff
     m_LastClickedID: -2104
     m_ExpandedIDs: 7a76ffffc8f7ffffe6fbffff0000000068250000
+=======
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: e6fbffff00000000
+>>>>>>> parent of 668d76b... Change commit
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
