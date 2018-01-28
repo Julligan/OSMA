@@ -4,23 +4,49 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public Transform feet;
+    public float gravityModifier;
     public float horizontalModifier;
     public float verticalModifier;
+    public float climbingModifier;
+    public float jumpMultipler;
+    public float methodTime;
+    public float lerpTime;
     public float lineBuffer;
 
     private Rigidbody2D rb2D;
-    private RaycastHit2D hit2D;
-    private Transform feet;
     private LayerMask groundLayer;
+    private LayerMask wallLayer; 
+
+    private int direction;
+    private int storedDirection;
+    private int flipArms;
+
+    private Vector2 velocity;
+
+    private float xSizeHalf;
+    private float ySizeHalf;
+    private float horizontal;
+
     private bool grounded; // Determines if the player is grounded.
+    private bool wall; // States if the player is next to a wall
 
 	// Use this for initialization
 	void Start () {
+        xSizeHalf = transform.localScale.x / 2;
+        ySizeHalf = transform.localScale.y / 2;
+        horizontal = 0;
+        direction = 1;
+        flipArms = 2;
+
+        velocity = Vector2.up;
+
         grounded = true;
+        wall = false;
 
         rb2D = GetComponent<Rigidbody2D>();
-        feet = GetComponentInChildren<Transform>();
         groundLayer = LayerMask.GetMask("Ground");
+        wallLayer = LayerMask.GetMask("Wall");
 
         if (feet == null)
             Debug.LogWarning("There are no feet");
@@ -28,74 +54,172 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update()
     {
-        grounded = isGrounded();
-        Debug.Log(grounded);
+        isGrounded();
+
+        if (grounded || wall)
+        {
+            storedDirection = direction;
+            XMovement();
+            YMovement();
+        }
+        else
+        { 
+            Flip();
+
+            if (storedDirection == -2 && !IsInvoking("StartGravity"))
+                Invoke("StartGravity", methodTime);
+            else if (!IsInvoking("StartGravity"))
+                rb2D.gravityScale = gravityModifier;
+
+            Propel();
+
+            if(storedDirection != -2)
+                FallDown();
+        }
+
+        nearWall();
     }
 
-    // Update is called once per frame
-    void FixedUpdate () {
+    //FIXME: The jump doesnt have a middle ground
+    private void FallDown()
+    {
 
-        // Vector2 displacement =  new Vector2(XMovement(), 0.0f);
+        if (horizontal == 0)
+        {
+            velocity = new Vector2(0.0f, rb2D.velocity.y);
+            velocity = Vector2.Lerp(velocity, Vector2.zero, lerpTime);
+        }
+        else
+        {
+            velocity = new Vector2(horizontalModifier * direction, rb2D.velocity.y);
+            velocity = Vector2.Lerp(velocity, Vector2.zero, lerpTime);
+        }
 
-        XMovement();
-
-       if (grounded == true)
-            YMovement();
-           // rb2D.AddForceAtPosition(YMovement() * verticalModifier * Time.deltaTime, feet.position, ForceMode2D.Impulse);
-
-	}
+        rb2D.position += velocity * jumpMultipler * Time.deltaTime;
+    }
 
     // Moves the player in the x direction
-    // CONSIDER: The player seems to be jittering.
-    // POSSIBLE SOLUTION: It could simply be because of my computer.
     private void XMovement()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
 
-        Vector3 horizontalDisplacement = new Vector2(horizontal * horizontalModifier, 0.0f);
+        if (horizontal == 1f)
+            direction = 1;
+        else if (horizontal == -1f)
+            direction = -1;
 
-        //rb2D.position += horizontalDisplacement * Time.deltaTime;
+        Vector2 horizontalDisplacement = new Vector2(horizontal * horizontalModifier, 0.0f);
 
-        transform.Translate(horizontalDisplacement * Time.deltaTime);
-
-        //return horizontal * horizontalModifier;
+        rb2D.position += horizontalDisplacement * Time.fixedDeltaTime;
     }
 
     // Moves the player in the y direction
     private void YMovement()
     {
+        if (Input.GetKey(KeyCode.W) && wall)
+        {
+            rb2D.gravityScale = 0.0f;
+            Climb();
+            return;
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Jump();
+        }
+    }
+
+    private void Flip()
+    {
+        //Debug.Log("Flip");
+        if (direction == 1 && flipArms > 0 && Input.GetKeyDown(KeyCode.A))
+        {
+            ChangeDirection();
+        }
+        else if (direction == -1 && flipArms > 0 && Input.GetKeyDown(KeyCode.D))
+        {
+            ChangeDirection();
+        }
+    }
+
+    private void ChangeDirection()
+    {
+        storedDirection = -2;
+        direction *= -1;
+        --flipArms;
+        velocity = Vector2.zero;
+        rb2D.velocity = Vector2.zero;
+
+        rb2D.gravityScale = 0;
+    }
+
+    private void Propel()
+    {
+        float horizontalPropel = Input.GetAxisRaw("Horizontal");
+        float verticalPropel = Input.GetAxis("Vertical");
+
+        Vector2 propelVelocity = Vector2.zero;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            //Debug.Log("Propel");
+            if (direction == horizontal)
+            {
+                propelVelocity.x = horizontalPropel * 300;
+            }
+            propelVelocity.y = verticalPropel * 300;
+
+            rb2D.velocity = Vector2.zero;
+
+            rb2D.AddForceAtPosition(propelVelocity, feet.transform.position);
+        }
+    }
+
+    private void StartGravity()
+    {
+        rb2D.gravityScale = gravityModifier;
+    }
+
+    private void Climb()
+    {
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 verticalDisplacement = new Vector2(0.0f, vertical * verticalModifier);
+        Debug.Log("Begin Climbing"); 
 
-        rb2D.AddForceAtPosition(verticalDisplacement * Time.deltaTime, feet.position, ForceMode2D.Impulse);
+        Vector2 climbing = new Vector2(0.0f, vertical * climbingModifier);
 
-        //return vertical * verticalModifier;
+        rb2D.position += climbing * Time.deltaTime;
+    }
+
+    private void Jump()
+    {
+        //Debug.Log("Jump");
+        rb2D.velocity = Vector2.zero;
+        Vector2 verticalDisplacement = new Vector2(0.0f, verticalModifier);
+        rb2D.AddForceAtPosition(verticalDisplacement * Time.fixedDeltaTime, feet.position, ForceMode2D.Impulse);
     }
 
     // Checks if the player is on the ground
-    private bool isGrounded()
+    private void isGrounded()
     {
-        Vector2 lineStartBuffer = new Vector2(feet.position.x, feet.position.y - 1.5f);
-        Vector2 lineEndBuffer = new Vector2(feet.position.x, feet.position.y - lineBuffer);
+        Vector2 overLapA = new Vector2(transform.position.x - xSizeHalf, transform.position.y - ySizeHalf);
+        Vector2 overLapB = new Vector2(transform.position.x + xSizeHalf, transform.position.y - ySizeHalf);
 
-        hit2D = Physics2D.Linecast(feet.position, lineEndBuffer, groundLayer);
+        grounded = Physics2D.OverlapArea(overLapA, overLapB, groundLayer);
 
-        // Debug.Log(hit2D.collider.name);
-        if (hit2D == false)
-            return false;
+    }
 
-        if (hit2D.collider.CompareTag("Ground"))
-            return true;
-        else
-            return false;
+    private void nearWall()
+    {
+        Vector2 overLapA = new Vector2(transform.position.x + (xSizeHalf * direction), transform.position.y - ySizeHalf);
+        Vector2 overLapB = new Vector2(transform.position.x + (xSizeHalf * direction), transform.position.y + ySizeHalf);
+
+        wall = Physics2D.OverlapArea(overLapA, overLapB, wallLayer);
     }
 
     private void OnDrawGizmos()
     {
-        Vector2 lineStartBuffer = new Vector2(feet.position.x, feet.position.y - 1.5f);
-        Vector2 lineEndBuffer = new Vector2(feet.position.x, feet.position.y - lineBuffer);
-
-        Gizmos.DrawLine(lineStartBuffer, lineEndBuffer);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawCube(new Vector2((transform.position.x - xSizeHalf), (transform.position.y)),
+            new Vector2(0.01f, 1f));
     }
 }
