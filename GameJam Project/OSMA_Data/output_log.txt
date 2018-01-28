@@ -1,0 +1,216 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: Intel(R) HD Graphics (ID=0x46)
+    Vendor:   Intel
+    VRAM:     880 MB
+    Driver:   8.15.10.2900
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.041 seconds
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Judith\Documents\GameJam Project\OSMA_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 53.114883 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 9.226976 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 12.472424 ms (FindLiveObjects: 0.049437 ms CreateObjectMapping: 0.039712 ms MarkObjects: 12.330999 ms  DeleteObjects: 0.050653 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.202899 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.547864 ms (FindLiveObjects: 0.059973 ms CreateObjectMapping: 0.042143 ms MarkObjects: 0.433996 ms  DeleteObjects: 0.010130 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.125715 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.686856 ms (FindLiveObjects: 0.076587 ms CreateObjectMapping: 0.074561 ms MarkObjects: 0.518688 ms  DeleteObjects: 0.015803 ms)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.205544 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.703470 ms (FindLiveObjects: 0.066051 ms CreateObjectMapping: 0.072940 ms MarkObjects: 0.519903 ms  DeleteObjects: 0.042548 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.521716 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.678752 ms (FindLiveObjects: 0.071724 ms CreateObjectMapping: 0.076182 ms MarkObjects: 0.513420 ms  DeleteObjects: 0.015803 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.917834 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.684425 ms (FindLiveObjects: 0.072535 ms CreateObjectMapping: 0.075777 ms MarkObjects: 0.517067 ms  DeleteObjects: 0.016614 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.723732 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.682399 ms (FindLiveObjects: 0.079424 ms CreateObjectMapping: 0.079018 ms MarkObjects: 0.506531 ms  DeleteObjects: 0.015803 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.811260 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.673889 ms (FindLiveObjects: 0.070103 ms CreateObjectMapping: 0.081045 ms MarkObjects: 0.506531 ms  DeleteObjects: 0.013777 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.910540 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.653628 ms (FindLiveObjects: 0.070914 ms CreateObjectMapping: 0.070103 ms MarkObjects: 0.494374 ms  DeleteObjects: 0.016614 ms)
+
+Scene with build index: 3 couldn't be loaded because it has not been added to the build settings.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 132)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.718869 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.682399 ms (FindLiveObjects: 0.074966 ms CreateObjectMapping: 0.076587 ms MarkObjects: 0.511799 ms  DeleteObjects: 0.017424 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.733457 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.699823 ms (FindLiveObjects: 0.076182 ms CreateObjectMapping: 0.075371 ms MarkObjects: 0.529629 ms  DeleteObjects: 0.017424 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.581498 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.343225 ms (FindLiveObjects: 0.062404 ms CreateObjectMapping: 0.042548 ms MarkObjects: 0.230167 ms  DeleteObjects: 0.006483 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.703470 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.711575 ms (FindLiveObjects: 0.067672 ms CreateObjectMapping: 0.075371 ms MarkObjects: 0.551511 ms  DeleteObjects: 0.015398 ms)
+
+Dead
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The referenced script on this Behaviour (Game Object 'Background 3') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.144355 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 307.
+Total: 0.669837 ms (FindLiveObjects: 0.074156 ms CreateObjectMapping: 0.070509 ms MarkObjects: 0.506126 ms  DeleteObjects: 0.017019 ms)
+
+Scene with build index: 3 couldn't be loaded because it has not been added to the build settings.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 132)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2bbc -> priority: 1 
+  Thread -> id: 166c -> priority: 1 

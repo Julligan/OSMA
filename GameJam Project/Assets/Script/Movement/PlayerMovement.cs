@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public Transform feet;
+
     public float gravityModifier;
     public float horizontalModifier;
     public float verticalModifier;
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
     public float lerpTime;
     public float lineBuffer;
 
+    private Animator anime;
+    private SpriteRenderer character;
     private Rigidbody2D rb2D;
     private LayerMask groundLayer;
     private LayerMask wallLayer; 
@@ -49,6 +52,8 @@ public class PlayerMovement : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
         wallLayer = LayerMask.GetMask("Wall");
+        anime = GetComponentInChildren<Animator>();
+        character = GetComponentInChildren<SpriteRenderer>();
 
         if (feet == null)
             Debug.LogWarning("There are no feet");
@@ -105,15 +110,26 @@ public class PlayerMovement : MonoBehaviour {
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
+        if (horizontal != 0)
+            anime.SetBool("isMoving", true);
+        else
+            anime.SetBool("isMoving", false);
+
         if (horizontal == 1f)
+        {
             direction = 1;
+            character.flipX = false;
+        }
         else if (horizontal == -1f)
+        {
             direction = -1;
+            character.flipX = true;
+        }
 
         Vector2 horizontalDisplacement = new Vector2(horizontal * horizontalModifier, 0.0f);
 
-        transform.Translate(horizontalDisplacement);
-        //rb2D.position += horizontalDisplacement * Time.fixedDeltaTime;
+        //transform.Translate(horizontalDisplacement);
+        rb2D.position += horizontalDisplacement * Time.fixedDeltaTime;
     }
 
     // Moves the player in the y direction
@@ -138,11 +154,15 @@ public class PlayerMovement : MonoBehaviour {
         if (direction == 1 && flipArms > 0 && Input.GetKeyDown(KeyCode.A))
         {
             ChangeDirection();
+            character.flipX = true;
         }
         else if (direction == -1 && flipArms > 0 && Input.GetKeyDown(KeyCode.D))
         {
             ChangeDirection();
+            character.flipX = false;
         }
+
+        anime.SetBool("isMoving", false);
     }
 
     private void ChangeDirection()
@@ -169,13 +189,15 @@ public class PlayerMovement : MonoBehaviour {
             //Debug.Log("Propel");
             if (direction == horizontal)
             {
-                propelVelocity.x = horizontalPropel * 750;
+                propelVelocity.x = horizontalPropel * 600;
             }
-            propelVelocity.y = verticalPropel * 750;
+            propelVelocity.y = verticalPropel * 600;
 
             rb2D.velocity = Vector2.zero;
 
             rb2D.AddForceAtPosition(propelVelocity, feet.transform.position);
+
+            anime.SetBool("hasLegs", false);
         }
     }
 
@@ -186,9 +208,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Climb()
     {
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        Debug.Log("Begin Climbing"); 
+        float vertical = Input.GetAxisRaw("Vertical"); 
 
         Vector2 climbing = new Vector2(0.0f, vertical * climbingModifier);
 
@@ -206,8 +226,8 @@ public class PlayerMovement : MonoBehaviour {
     // Checks if the player is on the ground
     private void isGrounded()
     {
-        Vector2 overLapA = new Vector2(transform.position.x - xSizeHalf, transform.position.y - ySizeHalf);
-        Vector2 overLapB = new Vector2(transform.position.x + xSizeHalf, transform.position.y - ySizeHalf);
+        Vector2 overLapA = new Vector2(transform.position.x - (xSizeHalf + 1.25f), transform.position.y - (ySizeHalf + 1.25f));
+        Vector2 overLapB = new Vector2(transform.position.x + xSizeHalf + 1.25f, transform.position.y - (ySizeHalf + 1.25f));
 
         grounded = Physics2D.OverlapArea(overLapA, overLapB, groundLayer);
 
@@ -215,8 +235,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private void nearWall()
     {
-        Vector2 overLapA = new Vector2(transform.position.x + (xSizeHalf * direction), transform.position.y - ySizeHalf);
-        Vector2 overLapB = new Vector2(transform.position.x + (xSizeHalf * direction), transform.position.y + ySizeHalf);
+        Vector2 overLapA = new Vector2(transform.position.x + ((xSizeHalf + 1.25f) * direction), transform.position.y - (ySizeHalf + 1.25f));
+        Vector2 overLapB = new Vector2(transform.position.x + ((xSizeHalf + 1.25f) * direction), transform.position.y + (ySizeHalf + 1.25f));
 
         wall = Physics2D.OverlapArea(overLapA, overLapB, wallLayer);
     }
@@ -224,7 +244,7 @@ public class PlayerMovement : MonoBehaviour {
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawCube(new Vector2((transform.position.x - xSizeHalf), (transform.position.y)),
-            new Vector2(0.01f, 1f));
+        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.5f),
+            new Vector2(1, 0.01f));
     }
 }
