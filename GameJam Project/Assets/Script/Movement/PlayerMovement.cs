@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     private int direction;
     private int storedDirection;
     private int flipArms;
+    private int launchLeg;
 
     private Vector2 velocity;
 
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
         horizontal = 0;
         direction = 1;
         flipArms = 2;
+        launchLeg = 1;
 
         velocity = Vector2.up;
 
@@ -119,6 +121,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.W) && wall)
         {
             rb2D.gravityScale = 0.0f;
+            rb2D.velocity = Vector2.zero;
             Climb();
             return;
         }
@@ -159,14 +162,15 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector2 propelVelocity = Vector2.zero;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && launchLeg == 1)
         {
+            --launchLeg;
             //Debug.Log("Propel");
             if (direction == horizontal)
             {
-                propelVelocity.x = horizontalPropel * 300;
+                propelVelocity.x = horizontalPropel * 750;
             }
-            propelVelocity.y = verticalPropel * 300;
+            propelVelocity.y = verticalPropel * 750;
 
             rb2D.velocity = Vector2.zero;
 

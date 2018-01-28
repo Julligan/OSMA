@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 374318992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.75, z: 0}
-  m_LocalScale: {x: 30.08, y: 1, z: 1}
+  m_LocalScale: {x: 66.97, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -513,11 +513,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feet: {fileID: 597069467}
   gravityModifier: 3
-  horizontalModifier: 15
-  verticalModifier: 400
+  horizontalModifier: 10
+  verticalModifier: 350
   climbingModifier: 10
   jumpMultipler: 2
-  methodTime: 0.1
+  methodTime: 0.5
   lerpTime: 0.5
   lineBuffer: 1
 --- !u!50 &1874708921
